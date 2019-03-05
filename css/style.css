@@ -17,7 +17,7 @@
 @font-face {
   font-style: normal;
   font-weight: 700;
-  font-family: "Cuprum Bold";
+  font-family: "Cuprum";
 
   src: local("Cuprum Bold"), local("Cuprum-Bold"), url("../fonts/cuprumbold.woff2") format("woff2"), url("../fonts/cuprumbold.woff") format("woff");
 }
@@ -533,6 +533,8 @@ body {
 }
 
 .user-menu .user-profile-button {
+  position: relative;
+
   flex-grow: 1;
   padding-right: 0;
   padding-left: 48px;
@@ -540,7 +542,6 @@ body {
 
   text-align: initial;
   white-space: nowrap;
-  position: relative;
 }
 
 .user-menu .user-profile-button::before {
@@ -563,8 +564,10 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+
   width: 24px;
   height: 100%;
+
   background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5) 25%, rgba(255, 255, 255, 0.75) 50%, #ffffff 75%);
 }
 
@@ -1719,8 +1722,8 @@ body {
 .sorting-of-items {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   margin-bottom: 20px;
+  padding-right: 15px;
 
   font-size: 13px;
   line-height: 18px;
@@ -1733,6 +1736,7 @@ body {
 
 .sorting-of-items .title {
   margin: 0;
+  margin-right: auto;
   padding: 10px 20px;
 
   font-weight: 400;
@@ -1740,27 +1744,58 @@ body {
   line-height: 18px;
 }
 
-.sort-list {
+.sorting-of-items a {
+  color: #000000;
+
+  opacity: 0.3;
+}
+
+.sort-type-list,
+.sort-order-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  min-width: 460px;
   margin: 0;
   padding: 0;
 
   list-style: none;
 }
 
-.sort-list .sorting-item:not(.sorting-oder) {
+.sort-type-list {
+  flex-basis: 380px;
+  margin-right: 20px;
+}
+
+.sort-order-list {
+  flex-basis: 45px;
+}
+
+.sort-type-list .sort-type {
   border-bottom: 1px dotted #ee3643;
 }
 
-.sort-item a {
-  color: #000000;
+.sort-type-list .sort-type:hover a {
+  opacity: 1;
 }
 
-.sort-list .sort-ascending-icon {
+.sort-type-list .sort-type:hover {
+  border-bottom-style: solid;
+}
+
+.sort-type-list .sort-type:active a {
+  color: #ee3643;
+
+  opacity: 1;
+}
+
+.sort-type-list .sort-type:active {
+  border-bottom: none;
+}
+
+.sort-order-list .sort-ascending::before {
+  content: "";
+
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -1770,7 +1805,9 @@ body {
   border-left: transparent solid 5px;
 }
 
-.sort-list .sort-descending-icon {
+.sort-order-list .sort-descending::before {
+  content: "";
+
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -1780,14 +1817,22 @@ body {
   border-left: transparent solid 5px;
 }
 
-.sort-list .sort-ascending-check:checked + .sort-ascending-icon {
-  border-bottom-color: #ee3643;
+.sort-order-list .sort-ascending:hover,
+.sort-order-list .sort-ascending:active {
   opacity: 1;
 }
 
-.sort-list .sort-descending-check:checked + .sort-descending-icon {
-  border-top-color: #ee3643;
+.sort-order-list .sort-ascending:active::before {
+  border-bottom-color: #ee3643;
+}
+
+.sort-order-list .sort-descending:hover,
+.sort-order-list .sort-descending:active {
   opacity: 1;
+}
+
+.sort-order-list .sort-descending:active::before {
+  border-top-color: #ee3643;
 }
 /* sorting of items end */
 
@@ -1848,7 +1893,8 @@ body {
 /* catalog columns end */
 
 .about-perforartors .container {
-  padding: 70px 0 75px;
+  padding-top: 70px;
+  padding-bottom: 75px;
 }
 
 .about-perforartors {

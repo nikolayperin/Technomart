@@ -52,7 +52,7 @@
         <ul class="site-navigation">
           <li><a href="index.html">Главная</a></li>
           <li><a href="#">Компания</a></li>
-          <li><a href="#">Каталог</a></li>
+          <li><a>Каталог</a></li>
           <li><a href="#">Новости</a></li>
           <li><a href="#">Спецпредложения</a></li>
           <li><a href="#">Доставка</a></li>
@@ -166,32 +166,23 @@
               <h2 class="visually-hidden">Список перфораторов</h2>
               <div class="sorting-of-items">
                 <h3 class="title">Сортировка:</h3>
-                <ul class="sort-list">
-                  <li class="sort-item">
-                    <input class="visually-hidden" type="radio" name="sorting-type" value="price" id="sort-by-price">
-                    <label for="sort-by-price"><a href="#">По цене</a></label>
+                <ul class="sort-type-list">
+                  <li class="sort-type">
+                    <a href="#">По цене</a>
                   </li>
-                  <li class="sort-item">
-                    <input class="visually-hidden" type="radio" name="sorting-type" value="type" id="sort-by-type">
-                    <label for="sort-by-type"><a href="#">По типу</a></label>
+                  <li class="sort-type">
+                    <a href="#">По типу</a>
                   </li>
-                  <li class="sort-item">
-                    <input class="visually-hidden" type="radio" name="sorting-type" value="functionality" id="sort-by-funtionality">
-                    <label for="sort-by-funtionality"><a href="#">По функционалу</a></label>
+                  <li class="sort-type">
+                    <a href="#">По функционалу</a>
                   </li>
-                  <li class="sort-item sort-oder">
-                    <label>
-                      <input class="sort-ascending-check visually-hidden" type="radio" name="sorting-oder" value="ascending" checked>
-                      <span class="sort-ascending-icon"></span>
-                      <span class="visually-hidden">По возрастанию</span>
-                    </label>
+                </ul>
+                <ul class="sort-order-list">
+                  <li class="sort-order">
+                    <a class="sort-ascending" href="#"><span class="visually-hidden">По возрастанию</span></a>
                   </li>
-                  <li class="sort-item sort-oder">
-                    <label>
-                      <input class="sort-descending-check visually-hidden" type="radio" name="sorting-oder" value="descending">
-                      <span class="sort-descending-icon"></span>
-                      <span class="visually-hidden">По убыванию</span>
-                    </label>
+                  <li class="sort-order">
+                    <a class="sort-descending" href="#"><span class="visually-hidden">По убыванию</span></a>
                   </li>
                 </ul>
               </div>
@@ -419,6 +410,5 @@
 </body>
 
 <!-- FIXME: проблема с тенями в каталоге -->
-<!-- FIXME: точку в меню пользователя сделать через псевдоэлемнт для li -->
 
 </html>

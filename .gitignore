@@ -1,0 +1,8 @@
+.vscode
+*.sublime*
+*.log
+*.pdf
+*.psd
+node_modules/
+npm-debug.*
+Thumbs.db
