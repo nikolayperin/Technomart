@@ -88,6 +88,13 @@
             <fieldset class="price-filter-fieldset">
               <legend class="price-filter-legend">Цена:</legend>
               <div class="price-wrapper">
+                <div class="price-range">
+                  <div class="scale">
+                    <div class="toggle toggle-min"></div>
+                    <div class="bar"></div>
+                    <div class="toggle toggle-max"></div>
+                  </div>
+                </div>
                 <label class="visually-hidden" for="start-price">Начальная цена</label>
                 <input class="start-price" type="text" id="start-price" size="8" name="start-price">
                 <span>—</span>
@@ -100,39 +107,24 @@
               <legend class="manufacturers-legend">Производители:</legend>
               <ul class="manufacturers-list">
                 <li>
-                  <label class="check-label">
-                    <input class="check-input visually-hidden"  type="checkbox" id="bosh-input" name="bosh">
-                    <span class="check-icon"></span>
-                    Bosch
-                  </label>
+                  <input class="visually-hidden" type="checkbox" id="check-bosh" name="bosh">
+                  <label for="check-bosh">Bosch</label>
                 </li>
                 <li>
-                  <label class="check-label">
-                    <input class="check-input visually-hidden" type="checkbox" id="interscol-input" name="interscol">
-                    <span class="check-icon"></span>
-                    Интерскол
-                  </label>
+                  <input class="visually-hidden" type="checkbox" id="check-interscol" name="interscol">
+                  <label for="check-interscol">Интерскол</label>
                 </li>
                 <li>
-                  <label class="check-label">
-                    <input class="check-input visually-hidden" type="checkbox" id="makita-input" name="makita" checked>
-                    <span class="check-icon"></span>
-                    Makita
-                  </label>
+                  <input class="visually-hidden" type="checkbox" id="check-makita" name="makita" checked>
+                  <label for="check-makita">Makita</label>
                 </li>
                 <li>
-                  <label class="check-label">
-                    <input class="check-input visually-hidden" type="checkbox" id="dewalt-input" name="dewalt">
-                    <span class="check-icon"></span>
-                    Dewalt
-                  </label>
+                  <input class="visually-hidden" type="checkbox" id="check-dewalt" name="dewalt">
+                  <label for="check-dewalt">Dewalt</label>
                 </li>
                 <li>
-                  <label class="check-label">
-                    <input class="check-input visually-hidden" type="checkbox" id="hitachi-input" name="hitachi">
-                    <span class="check-icon"></span>
-                    HITACHI
-                  </label>
+                  <input class="visually-hidden" type="checkbox" id="check-hitachi" name="hitachi">
+                  <label for="check-hitachi">Hitachi</label>
                 </li>
               </ul>
             </fieldset>
@@ -141,18 +133,12 @@
               <legend class="power-supply-legend">Питание:</legend>
               <ul class="power-supply-list">
                 <li>
-                  <label class="radio-label">
-                    <input class="radio-input visually-hidden" type="radio" name="power-supply" value="battery">
-                    <span class="radio-icon"></span>
-                    Аккумуляторные
-                  </label>
+                  <input class="visually-hidden" id="radio-battery" type="radio" name="power-supply" value="battery">
+                  <label for="radio-battery">Аккумуляторные</label>
                 </li>
                 <li>
-                  <label class="radio-label">
-                    <input class="radio-input visually-hidden" type="radio" name="power-supply" value="network">
-                    <span class="radio-icon"></span>
-                    Сетевые
-                  </label>
+                  <input class="visually-hidden" id="radio-ac" type="radio" name="power-supply" value="ac">
+                  <label for="radio-ac">Сетевые</label>
                 </li>
               </ul>
             </fieldset>

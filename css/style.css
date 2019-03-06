@@ -1579,15 +1579,67 @@ body {
 
 .filter-form .filters-values,
 .filter-form .start-price,
-.filter-form .end-price {
+.filter-form .end-price,
+.filter-form .price-range,
+.sorting-of-items {
   background-color: #f7f3ec;
+  border-radius: 3px;
+}
+
+.filter-form .start-price,
+.filter-form .end-price {
+  text-align: center;
 }
 
 .filter-form .price-wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.filter-form .price-range {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  padding: 39px 20px 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.price-range .scale {
+  width: 180px;
+  height: 2px;
+  background-color: #d7dcde;
+  position: relative;
+}
+
+.price-range .toggle {
+  width: 20px;
+  height: 20px;
+  background-color: #ababab;
+  border: 8px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 2px 1px 0 #cfcfcf;
+  cursor: pointer;
+}
+
+.price-range .toggle-min {
+  top: -9px;
+  left: -8px;
+}
+
+.price-range .toggle-max {
+  top: -9px;
+  right: 25px;
+}
+
+.price-range .bar {
+  height: 100%;
+  width: 80%;
+  background-color: #00ca74;
 }
 
 .price-filter-fieldset .start-price,
@@ -1626,9 +1678,9 @@ body {
   padding-left: 30px;
 }
 
-/* TODO: переделать иконки. Заинлайнить в CSS или использовать только стрелку? */
-/* check controls */
-.manufacturers-list .check-icon {
+/* check and radio controls */
+.manufacturers-list label::before {
+  content: "";
   position: absolute;
 
   width: 23px;
@@ -1639,37 +1691,11 @@ body {
   background-image: url("../img/icon-checkbox-unchecked.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+  opacity: 0.8;
 }
 
-.manufacturers-list .check-icon:hover,
-.manufacturers-list .check-input:focus + .check-icon {
-  background-image: url("../img/icon-checkbox-unchecked-hovered.svg");
-}
-
-.manufacturers-list .check-input:disabled + .check-icon {
-  opacity: 0.3;
-}
-
-.manufacturers-list .check-input:checked + .check-icon {
-  width: 27px;
-
-  background-image: url("../img/icon-checkbox-checked.svg");
-}
-
-.manufacturers-list .check-input:checked + .check-icon:hover,
-.manufacturers-list .check-input:checked:focus + .check-icon {
-  width: 27px;
-
-  background-image: url("../img/icon-checkbox-checked-hovered.svg");
-}
-
-.manufacturers-list .check-input:checked:disabled + .check-icon {
-  opacity: 0.3;
-}
-/* check controls end */
-
-/* radio controls */
-.power-supply-list .radio-icon {
+.power-supply-list label::before {
+  content: "";
   position: absolute;
 
   width: 25px;
@@ -1679,30 +1705,43 @@ body {
 
   background-image: url("../img/icon-radio-unchecked.svg");
   background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 0.8;
 }
 
-.power-supply-list .radio-icon:hover,
-.power-supply-list .radio-input:focus + .radio-icon {
-  background-image: url("../img/icon-radio-unchecked-hovered.svg");
+.manufacturers-list label:hover::before,
+.manufacturers-list input[type="checkbox"]:focus + label::before,
+.power-supply-list label:hover::before,
+.power-supply-list input[type="radio"]:focus + label::before {
+  opacity: 1;
 }
 
-.power-supply-list .radio-input:disabled + .radio-icon {
+.manufacturers-list input[type="checkbox"]:focus + label::before,
+.power-supply-list input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+.manufacturers-list input[type="checkbox"]:disabled + label::before,
+.power-supply-list input[type="radio"]:disabled + label::before {
   opacity: 0.3;
 }
 
-.power-supply-list .radio-input:checked + .radio-icon {
+.manufacturers-list input[type="checkbox"]:disabled + label,
+.power-supply-list input[type="radio"]:disabled + label {
+  opacity: 0.4;
+}
+
+.manufacturers-list input[type="checkbox"]:checked + label::before {
+  width: 27px;
+
+  background-image: url("../img/icon-checkbox-checked.svg");
+}
+
+.power-supply-list input[type="radio"]:checked + label::before {
   background-image: url("../img/icon-radio-checked.svg");
 }
-
-.power-supply-list .radio-input:checked + .radio-icon:hover,
-.power-supply-list .radio-input:checked:focus + .radio-icon {
-  background-image: url("../img/icon-radio-checked-hovered.svg");
-}
-
-.power-supply-list .radio-input:checked:disabled + .radio-icon {
-  opacity: 0.3;
-}
-/* radio controls end */
+/* check and radio controls end */
 
 .filter-form .submit-button {
   padding: 9px 38px;
@@ -1730,8 +1769,6 @@ body {
   font-family: "PT Sans", "Arial", sans-serif;
   color: #000000;
   text-transform: uppercase;
-
-  background-color: #f7f3ec;
 }
 
 .sorting-of-items .title {
