@@ -46,7 +46,7 @@
 
       <nav class="main-navigation">
         <ul class="site-navigation">
-          <li><a>Главная</a></li>
+          <li class="site-navigation-current"><a>Главная</a></li>
           <li><a href="#">Компания</a></li>
           <li><a href="#">Каталог</a></li>
           <li><a href="#">Новости</a></li>
@@ -93,17 +93,17 @@
               </ul>
               <div class="slider-controls">
                 <label class="slider-prev-arrow" for="slide-indicator-1"><span class="visually-hidden">Предыдущий</span></label>
-                <input class="slide-indicator visually-hidden" type="radio" id="slide-indicator-1" name="slide-indicator" checked>
+                <input class="visually-hidden" type="radio" id="slide-indicator-1" name="slide-indicator" checked>
                 <label class="slide-indicator-dot-container" for="slide-indicator-1">
                   <span class="slide-indicator-dot"></span>
                 </label>
                 <label class="slider-next-arrow" for="slide-indicator-2"><span class="visually-hidden">Следующий</span></label>
-                <input class="slide-indicator visually-hidden" type="radio" id="slide-indicator-2" name="slide-indicator">
+                <input class="visually-hidden" type="radio" id="slide-indicator-2" name="slide-indicator">
                 <label class="slide-indicator-dot-container" for="slide-indicator-2">
                   <span class="slide-indicator-dot"></span>
                 </label>
               </div>
-              <a class="button slider-button" href="#">Открыть каталог</a>
+              <a class="button slider-button" href="catalog.html">Открыть каталог</a>
           </div>
           <div class="promo-item discount">
             <h3>Скидки 50%</h3>
@@ -129,7 +129,7 @@
               <b class="price">25500 Р.</b>
             </p>
             <p class="manage-item-popup-menu">
-              <a class="button buy-button" href="#">Купить</a>
+              <button class="button buy-button">Купить</button>
               <button class="button add-to-bookmarks-button">В закладки</button>
             </p>
           </li>
@@ -141,7 +141,7 @@
               <b class="price">15500 Р.</b>
             </p>
             <p class="manage-item-popup-menu">
-              <a class="button buy-button" href="#">Купить</a>
+              <button class="button buy-button">Купить</button>
               <button class="button add-to-bookmarks-button">В закладки</button>
             </p>
           </li>
@@ -153,7 +153,7 @@
               <b class="price">25500 Р.</b>
             </p>
             <p class="manage-item-popup-menu">
-              <a class="button buy-button" href="#">Купить</a>
+              <button class="button buy-button">Купить</button>
               <button class="button add-to-bookmarks-button">В закладки</button>
             </p>
           </li>
@@ -165,7 +165,7 @@
               <b class="price">12500 Р.</b>
             </p>
             <p class="manage-item-popup-menu">
-              <a class="button buy-button" href="#">Купить</a>
+              <button class="button buy-button">Купить</button>
               <button class="button add-to-bookmarks-button">В закладки</button>
             </p>
           </li>
@@ -175,7 +175,7 @@
       <section class="brands">
         <header class="brands-header">
           <h2>Популярные производители</h2>
-          <a class="button section-top-button" href="#">Все производители</a>
+          <a class="button section-header-button" href="#">Все производители</a>
         </header>
         <ul class="brands-list">
           <li><a class="brands-item" href="#"><img src="img/brand-bosch.jpg" alt="Bosch" width="200" height="100"></a></li>
@@ -257,7 +257,7 @@
         <p class="description">Вы можете забрать товар сами,
           <br> заехав в наш офис:</p>
         <figure class="minimap">
-          <a href="#"><img src="img/mini-map.jpg" alt="г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8"></a>
+          <a href="#"><img src="img/mini-map.jpg" alt="г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8" width="300" height="158"></a>
         </figure>
         <a class="button submit-button" href="#">Заблудились? Напишите нам!</a>
       </section>
@@ -297,12 +297,12 @@
         <div class="links-wrapper">
           <p class="feedback-email">
             Обратная связь:
-            <a href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
+            <a href="mailto:mail@technomart.ru">mail@technomart.ru</a>
           </p>
 
           <p class="developed-by">
             Разработано -
-            <a href="http://htmlacademy.ru">htmlacademy.ru</a>
+            <a href="https://htmlacademy.ru/intensive/htmlcss">htmlacademy.ru</a>
           </p>
         </div>
       </div>
@@ -325,11 +325,8 @@
           <input id="user-password" type="password" name="password" placeholder="Пароль">
         </p>
         <p class="login-help">
-          <label class="remember-checkbox">
-            <input class="checkbox-input visually-hidden" type="checkbox" name="remember">
-            <span class="checkbox-icon"></span>
-            Запомните меня
-          </label>
+          <input class="visually-hidden" id="remeber-check" type="checkbox" name="remember">
+          <label for="remeber-check" class="remember-label">Запомните меня</label>
           <a class="restore" href="#">Я забыл пароль!</a>
         </p>
       </div>
@@ -368,10 +365,13 @@
   </section>
 
   <section class="modal modal-map">
-    <h2 class="visually-hidden">Карта</h2>
+    <h2 class="visually-hidden">Как до нас добраться</h2>
+    <img src="img/modal-map.jpg" alt="г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8" width="940" height="446">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533216!2d30.320858716368893!3d59.93871648187625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1549305126671" width="940" height="446" style="border:0;" allowfullscreen></iframe>
     <br><button class="modal-close"><span class="visually-hidden">Закрыть</span></button>
   </section>
+
+  <div class="modal-overlay"></div>
 
   <script>
 /*     var slideIndicators = document.querySelectorAll(".slider-controls .slide-indicator");
@@ -387,12 +387,11 @@
 <!-- TODO: просмотреть стили, переделать margin и padding -->
 <!-- TODO: просмотреть селекторы, некоторые переделать -->
 <!-- FIXME: отображение main-header-top в IE (высота) -->
-<!-- FIXME: проблемав с центровкой, контейнерами и зумом -->
-<!-- TODO: просмотреть ссылки и баттоны - везде ли правильно? -->
 <!-- TODO: просмотреть инспекторорм доступности, добавить aria-label? -->
-<!-- FIXME: доступ по tab к manage item menu -->
-<!-- TODO: обернуть товары в article? -->
-<!-- TODO: состояние фокуса для индикаторов слайдов -->
-<!-- FIXME: какой то outline (по умолчанию?) для элементов, где он не отображается? (.services .list-item) -->
 <!-- TODO: флаг new - надпись для доступности -->
+
+<!-- TODO: стрелки в слайдере сделать button'ами? -->
+<!-- FIXME: доступ по tab к manage item menu? -->
+<!-- TODO: обернуть товары в article? -->
+<!-- FIXME: проблема с тенями в каталоге в firefox -->
 </html>

@@ -52,7 +52,7 @@
         <ul class="site-navigation">
           <li><a href="index.html">Главная</a></li>
           <li><a href="#">Компания</a></li>
-          <li><a>Каталог</a></li>
+          <li class="site-navigation-current"><a>Каталог</a></li>
           <li><a href="#">Новости</a></li>
           <li><a href="#">Спецпредложения</a></li>
           <li><a href="#">Доставка</a></li>
@@ -96,10 +96,10 @@
                   </div>
                 </div>
                 <label class="visually-hidden" for="start-price">Начальная цена</label>
-                <input class="start-price" type="text" id="start-price" size="8" name="start-price">
+                <input class="start-price" type="text" id="start-price" size="8" name="start-price" value="">
                 <span>—</span>
                 <label class="visually-hidden" for="end-price"></label>
-                <input class="end-price" type="text" id="end-price" size="8" name="end-price">
+                <input class="end-price" type="text" id="end-price" size="8" name="end-price" value="">
               </div>
             </fieldset>
 
@@ -115,7 +115,7 @@
                   <label for="check-interscol">Интерскол</label>
                 </li>
                 <li>
-                  <input class="visually-hidden" type="checkbox" id="check-makita" name="makita" checked>
+                  <input class="visually-hidden" type="checkbox" id="check-makita" name="makita">
                   <label for="check-makita">Makita</label>
                 </li>
                 <li>
@@ -183,7 +183,7 @@
                 <b class="price">15500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -195,7 +195,7 @@
                 <b class="price">25500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -207,7 +207,7 @@
                 <b class="price">12500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -219,7 +219,7 @@
                 <b class="price">15500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -231,7 +231,7 @@
                 <b class="price">25500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -243,7 +243,7 @@
                 <b class="price">12500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -255,7 +255,7 @@
                 <b class="price">15500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -267,7 +267,7 @@
                 <b class="price">25500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -279,7 +279,7 @@
                 <b class="price">12500 Р.</b>
               </p>
               <p class="manage-item-popup-menu">
-                <a class="button buy-button" href="#">Купить</a>
+                <button class="button buy-button">Купить</button>
                 <button class="button add-to-bookmarks-button">В закладки</button>
               </p>
             </li>
@@ -337,48 +337,17 @@
           <div class="links-wrapper">
             <p class="feedback-email">
               Обратная связь:
-              <a href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
+              <a href="mailto:mail@technomart.ru">mail@technomart.ru</a>
             </p>
 
             <p class="developed-by">
               Разработано -
-              <a href="http://htmlacademy.ru">htmlacademy.ru</a>
+              <a href="https://htmlacademy.ru/intensive/htmlcss">htmlacademy.ru</a>
             </p>
           </div>
       </div>
     </div>
   </footer>
-
-  <section class="modal feedback-modal">
-      <h2 class="visually-hidden">Напишите нам</h2>
-      <form action="http://echo.htmlacademy.ru" method="post">
-        <div class="feedback-form-inner-wrapper">
-          <p class="user-contacts">
-            <label class="field-name" for="input-name">Ваше имя:
-              <br><input type="text" name="name" id="input-name" placeholder="Представьтесть, пожалуйста" size="30"><br>
-            </label>
-              <label class="field-email" for="input-email">Ваш e-mail:
-              <br><input type="email" name="email" id="input-email" placeholder="Для отправки ответа" size="30">
-            </label>
-            </p>
-          <label class="field-message" for="textarea-message">Текст письма:
-            <br><textarea name="message" id="textarea-message" placeholder="В свободной форме" cols="30" rows="5"></textarea>
-          </label>
-          </div>
-        <div class="form-bottom">
-          <div class="feedback-form-inner-wrapper">
-            <button class="button submit-button" title="Отправить письмо">Отправить</button>
-          </div>
-        </div>
-      </form>
-      <button class="button close-button">Закрыть</button>
-    </section>
-
-    <section class="modal modal-map">
-      <h2 class="visually-hidden">Карта</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533216!2d30.320858716368893!3d59.93871648187625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1549305126671" width="940" height="445" style="border:0;" allowfullscreen></iframe>
-      <br><button class="button close-button">Закрыть</button>
-    </section>
 
   <section class="modal modal-cart-notification">
     <div class="cart-notification-inner-wrapper">
@@ -393,8 +362,7 @@
     </div>
     <button class="modal-close"><span class="visually-hidden">Закрыть</span></button>
   </section>
+
+  <div class="modal-overlay"></div>
 </body>
-
-<!-- FIXME: проблема с тенями в каталоге -->
-
 </html>
