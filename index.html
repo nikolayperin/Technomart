@@ -92,16 +92,12 @@
                 </li>
               </ul>
               <div class="slider-controls">
-                <label class="slider-prev-arrow" for="slide-indicator-1"><span class="visually-hidden">Предыдущий</span></label>
-                <input class="visually-hidden" type="radio" id="slide-indicator-1" name="slide-indicator" checked>
-                <label class="slide-indicator-dot-container" for="slide-indicator-1">
-                  <span class="slide-indicator-dot"></span>
-                </label>
-                <label class="slider-next-arrow" for="slide-indicator-2"><span class="visually-hidden">Следующий</span></label>
-                <input class="visually-hidden" type="radio" id="slide-indicator-2" name="slide-indicator">
-                <label class="slide-indicator-dot-container" for="slide-indicator-2">
-                  <span class="slide-indicator-dot"></span>
-                </label>
+                <button class="slider-backward-button" type="button"><span class="visually-hidden">Предыдущий</span></button>
+                <button class="slider-forward-button" type="button"><span class="visually-hidden">Следующий</span></button>
+                <div class="slide-indicators">
+                  <span class="slide-indicator slide-indicator-current"></span>
+                  <span class="slide-indicator"></span>
+                </div>
               </div>
               <a class="button slider-button" href="catalog.html">Открыть каталог</a>
           </div>
@@ -257,9 +253,9 @@
         <p class="description">Вы можете забрать товар сами,
           <br> заехав в наш офис:</p>
         <figure class="minimap">
-          <a href="#"><img src="img/mini-map.jpg" alt="г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8" width="300" height="158"></a>
+          <a class="open-map-link" href="#"><img src="img/mini-map.jpg" alt="г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8" width="300" height="158"></a>
         </figure>
-        <a class="button submit-button" href="#">Заблудились? Напишите нам!</a>
+        <a class="button contact-us-button" href="#">Заблудились? Напишите нам!</a>
       </section>
     </div>
   </main>
@@ -339,7 +335,21 @@
     <button class="modal-close" type="button"><span class="visually-hidden">Закрыть</span></button>
   </section>
 
-  <section class="modal feedback-modal">
+  <section class="modal modal-cart-notification">
+      <div class="cart-notification-inner-wrapper">
+        <h2>Товар добавлен в корзину!</h2>
+      </div>
+
+      <div class="notification-bottom">
+        <div class="cart-notification-inner-wrapper">
+          <a class="button place-order-button" href="#">Оформить заказ</a>
+          <a class="button continue-button" href="#">Продолжить покупки</a>
+        </div>
+      </div>
+      <button class="modal-close"><span class="visually-hidden">Закрыть</span></button>
+    </section>
+
+  <section class="modal modal-feedback">
     <h2 class="visually-hidden">Напишите нам</h2>
     <form class="feedback-form" action="https://echo.htmlacademy.ru" method="post">
       <div class="form-inner-wrapper">
@@ -373,25 +383,6 @@
 
   <div class="modal-overlay"></div>
 
-  <script>
-/*     var slideIndicators = document.querySelectorAll(".slider-controls .slide-indicator");
-    var slides = document.querySelectorAll('.promo-slider-list .slider-item');
-
-    for (i = 0; i < slideIndicators.length; i++) {
-    if(slideIndicators[i].checked === true)
-        console.log(i);
-    } */
-
-  </script>
+  <script src="js/main.js"></script>
 </body>
-<!-- TODO: просмотреть стили, переделать margin и padding -->
-<!-- TODO: просмотреть селекторы, некоторые переделать -->
-<!-- FIXME: отображение main-header-top в IE (высота) -->
-<!-- TODO: просмотреть инспекторорм доступности, добавить aria-label? -->
-<!-- TODO: флаг new - надпись для доступности -->
-
-<!-- TODO: стрелки в слайдере сделать button'ами? -->
-<!-- FIXME: доступ по tab к manage item menu? -->
-<!-- TODO: обернуть товары в article? -->
-<!-- FIXME: проблема с тенями в каталоге в firefox -->
 </html>

@@ -24,7 +24,7 @@
           </button>
         </form>
         <a class="button bookmarks-button" href="#">Закладки: <output name="bookmarks-amount">0</output></a>
-        <a class="button cart-button not-empty-cart" href="#">Корзина: <output name="cart-amount">10</output></a>
+        <a class="button cart-button not-empty" href="#">Корзина: <output name="cart-amount">10</output></a>
         <a class="button place-order-button" href="#">Оформить заказ</a>
       </div>
     </div>
@@ -98,7 +98,7 @@
                 <label class="visually-hidden" for="start-price">Начальная цена</label>
                 <input class="start-price" type="text" id="start-price" size="8" name="start-price" value="">
                 <span>—</span>
-                <label class="visually-hidden" for="end-price"></label>
+                <label class="visually-hidden" for="end-price">Конечная цена</label>
                 <input class="end-price" type="text" id="end-price" size="8" name="end-price" value="">
               </div>
             </fieldset>
@@ -364,5 +364,7 @@
   </section>
 
   <div class="modal-overlay"></div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
