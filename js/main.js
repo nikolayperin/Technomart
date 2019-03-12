@@ -11,9 +11,13 @@ var modalOverlay = document.querySelector(".modal-overlay");
 
 var isStorageSupport = true;
 var loginStorage = "";
+var nameStorage = "";
+var emailStorage = "";
 
 try {
   loginStorage = localStorage.getItem("login");
+  nameStorage = localStorage.getItem("name");
+  emailStorage = localStorage.getItem("email");
 } catch (err) {
   isStorageSupport = false;
 }
@@ -130,6 +134,7 @@ var continueButton = document.querySelector(".modal-cart-notification .continue-
 if (document.body.contains(buyButtons[0])) {
   for (var i = 0; i < buyButtons.length; i++) {
     buyButtons[i].addEventListener("click", function(evt){
+      evt.preventDefault();
       if (!cartButton.classList.contains("not-empty")) {
         cartButton.classList.add("not-empty");
       }
@@ -143,6 +148,7 @@ if (document.body.contains(buyButtons[0])) {
 if (document.body.contains(addToBookmarksButtons[0])) {
   for (var i = 0; i < addToBookmarksButtons.length; i++) {
     addToBookmarksButtons[i].addEventListener("click", function(evt){
+      evt.preventDefault();
       if (!bookmarksButton.classList.contains("not-empty")) {
         bookmarksButton.classList.add("not-empty");
       }
@@ -172,16 +178,28 @@ if (document.body.contains(contactUsButton)) {
     evt.preventDefault();
     modalFeedback.classList.add("modal-show");
     modalOverlay.style.display = "block";
-    nameInput.focus();
+    if (nameStorage) {
+      nameInput.value = nameStorage;
+      emailInput.focus();
+    } else if (emailStorage) {
+      emailInput.value = emailStorage;
+      messageInput.focus();
+    } else {
+      nameInput.focus();
+    }
   });
 }
-
 
 if (document.body.contains(feedbackForm)) {
   feedbackForm.addEventListener("submit", function(evt){
     if (!nameInput.value || !emailInput.value || !messageInput.value) {
       evt.preventDefault();
       modalFeedback.classList.add("modal-error");
+    } else {
+      if (isStorageSupport) {
+        localStorage.setItem("name", nameInput.value);
+        localStorage.setItem("email", emailInput.value);
+      }
     }
   });
 }

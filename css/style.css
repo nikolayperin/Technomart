@@ -72,9 +72,7 @@ a {
 }
 
 /* сниппет для доступного скрытия элементов на странице */
-.visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
+.visually-hidden {
   position: absolute;
 
   width: 1px;
@@ -696,29 +694,28 @@ body {
   clear: both;
 }
 
-.promo-section > .promo-item {
+.promo-section .promo-item {
   float: left;
   margin-right: 20px;
 }
 
-.promo-section > .promo-item:not(.promo-slider):nth-of-type(n+3) {
+.promo-section .promo-item:not(.promo-slider):nth-of-type(n+3) {
   margin-right: 0;
 }
 
-.promo-section > .promo-item:not(.promo-slider):not(:last-child) {
+.promo-section .promo-item:not(.promo-slider):not(:last-child) {
   margin-bottom: 20px;
 }
 
-.promo-section > .promo-item:not(.promo-slider) {
+.promo-section .promo-item:not(.promo-slider) {
   width: 300px;
   height: 123px;
+  padding: 20px;
 }
 
 .promo-section h3 {
-  margin: 0;
-  margin-top: 20px;
+  margin-top: 0;
   margin-bottom: 15px;
-  padding: 0 20px;
 
   font-weight: 700;
   font-size: 24px;
@@ -727,7 +724,7 @@ body {
 
 .promo-section .promo-button {
   min-width: 135px;
-  margin-left: 25px;
+  margin-left: 5px;
 
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -776,7 +773,6 @@ body {
   background-position: right 30px center;
 }
 
-/* TODO: оставить или убрать? Как позиционировать контролы слайдера? */
 /* promo slider */
 .promo-section .promo-slider {
   position: relative;
@@ -872,12 +868,6 @@ body {
   text-align: center;
 }
 
-
-/* .slider-controls input[type="radio"]:focus + label > .slide-indicator-dot {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-} */
-
 .slider-controls .slider-backward-button,
 .slider-controls .slider-forward-button {
   position: absolute;
@@ -906,7 +896,6 @@ body {
   background-image: url("../img/icon-right-arrow.svg");
 }
 
-/* fixme: opacity для outline - исправить */
 .slider-controls .slider-backward-button:hover,
 .slider-controls .slider-forward-button:hover {
   opacity: 0.5;
@@ -1012,6 +1001,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .popular-item:hover,
@@ -1019,26 +1009,23 @@ body {
 .popular-item:focus,
 .catalog-item:focus {
   box-shadow: 0 10px 25px rgba(41, 52, 73, 0.5);
+
   transition: 0.25s;
 }
 
 .popular-item .item-image,
 .catalog-item .item-image {
   order: -1;
-  width: auto;
+  width: 200px;
+  height: 150px;
+  margin-bottom: 25px;
 
   text-align: center;
 }
 
-.popular-item .item-image img,
-.catalog-item .item-image img {
-  width: 200px;
-  height: 150px;
-}
-
 .popular-item .item-name,
 .catalog-item .item-name {
-  margin-top: 25px;
+  margin-top: 0;
   margin-bottom: 15px;
   padding: 0 10px;
 
@@ -1066,7 +1053,7 @@ body {
 .popular-item .prices,
 .catalog-item .prices {
   margin-top: auto;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .popular-item .old-price,
@@ -1131,6 +1118,7 @@ body {
 .popular-item:hover .manage-item-popup-menu,
 .catalog-item:hover .manage-item-popup-menu {
   display: flex;
+
   animation: emergence 0.3s;
 }
 
@@ -1142,7 +1130,7 @@ body {
 .catalog-item .buy-button {
   position: relative;
 
-  padding-right: 40px;
+  padding-right: 30px;
   padding-left: 40px;
 
   background-color: #63a63e;
@@ -1239,30 +1227,36 @@ body {
 }
 
 .brands-item {
-  display: block;
   height: 145px;
-  padding: 22px 0;
+}
+
+.brands-item a {
+  display: block;
+  padding: 20px 0;
 
   text-align: center;
 }
 
-.brands-item:hover,
-.brands-item:focus {
+.brands-item a:hover,
+.brands-item a:focus {
   box-shadow: 0 10px 25px rgba(41, 52, 73, 0.5);
+
   transition: 0.25s;
 }
 
-.brands-item:active {
+.brands-item a:active {
   box-shadow: 0 4px 10px rgba(41, 52, 73, 0.5);
+
   transition: 0.25s;
 }
 
-.brands-item:active img {
+.brands-item a:active img {
   opacity: 0.3;
 }
 
 .brands-item img {
-  width: auto;
+  width: 200px;
+  height: 100px;
 }
 /* brands end */
 
@@ -1381,7 +1375,7 @@ body {
 
 .service-description .service-name {
   margin-top: 0;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 
   font-weight: 400;
   font-size: 36px;
@@ -1390,7 +1384,8 @@ body {
   text-transform: uppercase;
 }
 
-.service-description p {
+.service-description .service-name,
+.service-description .description {
   width: 400px;
 }
 
@@ -1502,7 +1497,7 @@ body {
   display: block;
 }
 
-.contacts .contacts-us-button {
+.contacts .contact-us-button {
   width: 100%;
 }
 /* about company and contacts end */
@@ -1607,13 +1602,12 @@ body {
   margin: 0;
   margin-bottom: 20px;
   padding: 0;
-  padding-bottom: 25px;
 
   border: none;
 }
 
 .filter-form fieldset:last-of-type {
-  margin-bottom: 55px;
+  margin-bottom: 70px;
 }
 
 .filter-form .price-filter-legend,
@@ -1730,15 +1724,17 @@ body {
 
   list-style: none;
   font-size: 15px;
-  line-height: 20px;
+  line-height: 25px;
 }
 
 .filter-form .manufacturers-list li:not(:last-child),
 .filter-form .power-supply-list li:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .filter-form fieldset:not(:last-of-type) {
+  padding-bottom: 25px;
+
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -1755,7 +1751,7 @@ body {
 
   width: 23px;
   height: 23px;
-  margin-top: -2px;
+  margin-top: 1px;
   margin-left: -30px;
 
   background-image: url("../img/icon-checkbox-unchecked.svg");
@@ -1770,7 +1766,6 @@ body {
 
   width: 25px;
   height: 25px;
-  margin-top: -2px;
   margin-left: -30px;
 
   background-image: url("../img/icon-radio-unchecked.svg");
