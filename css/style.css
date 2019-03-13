@@ -72,7 +72,10 @@ a {
 }
 
 /* сниппет для доступного скрытия элементов на странице */
-.visually-hidden {
+.visually-hidden:not(a),
+a.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
   position: absolute;
 
   width: 1px;
@@ -152,7 +155,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .main-logo,
@@ -187,6 +190,7 @@ body {
 .main-logo {
   position: relative;
 
+  align-self: flex-start;
   width: 220px;
   height: 42px;
   padding: 9px 0;
@@ -1657,27 +1661,46 @@ body {
   align-items: center;
 }
 
-.filter-form .price-range {
+.price-range {
+  display: block;
   width: 100%;
   height: 80px;
   margin-bottom: 10px;
-  padding: 39px 20px 0;
+  padding: 0 20px;
 
+  background-color: #f7f3ec;
+  border-radius: 3px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.price-range .scale {
-  position: relative;
+.irs .irs-min,
+.irs .irs-max,
+.irs .irs-from,
+.irs .irs-to,
+.irs .irs-single {
+  display: none;
+}
 
-  width: 180px;
+.irs .irs-line {
+  top: 39px;
+
   height: 2px;
 
   background-color: #d7dcde;
+  border-radius: 0;
 }
 
-.price-range .toggle {
-  position: absolute;
+.irs .irs-bar {
+  top: 39px;
+
+  height: 2px;
+
+  background-color: #00ca74;
+}
+
+.irs .irs-handle {
+  top: 30px;
 
   width: 20px;
   height: 20px;
@@ -1689,21 +1712,8 @@ body {
   cursor: pointer;
 }
 
-.price-range .toggle-min {
-  top: -9px;
-  left: -8px;
-}
-
-.price-range .toggle-max {
-  top: -9px;
-  right: 25px;
-}
-
-.price-range .bar {
-  width: 80%;
-  height: 100%;
-
-  background-color: #00ca74;
+.irs .irs-handle > i:first-child {
+  display: none;
 }
 
 .price-filter-fieldset .start-price,
@@ -1725,6 +1735,7 @@ body {
   list-style: none;
   font-size: 15px;
   line-height: 25px;
+  position: relative;
 }
 
 .filter-form .manufacturers-list li:not(:last-child),
@@ -2093,8 +2104,7 @@ body {
 
 .footer-navigation li a:hover,
 .footer-navigation li a:focus {
-  text-decoration-color: currentColor;
-  text-decoration-line: underline;
+  text-decoration: underline;
 }
 
 .footer-navigation li a:active {
@@ -2185,8 +2195,7 @@ body {
 .footer-bottom .developed-by a:hover,
 .footer-bottom .feedback-email a:focus,
 .footer-bottom .developed-by a:focus {
-  text-decoration-color: currentColor;
-  text-decoration-line: underline;
+  text-decoration: underline;
 }
 
 .footer-bottom .feedback-email a:active,
@@ -2408,7 +2417,6 @@ body {
   left: 50%;
 
   width: 620px;
-  height: 428px;
   margin-top: -214px;
   margin-left: -310px;
 
@@ -2544,6 +2552,7 @@ body {
   width: 620px;
   margin-top: -150px;
   margin-left: -310px;
+  padding-top: 70px;
 
   box-shadow: 0 20px 40px rgba(41, 52, 73, 0.75);
 
@@ -2564,12 +2573,10 @@ body {
   background-position: 0 0;
 }
 
-.cart-notification-inner-wrapper {
-  padding: 70px 0 70px 180px;
-}
-
 .modal-cart-notification h2 {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 70px;
+  padding-left: 180px;
 
   font-weight: normal;
   font-size: 30px;

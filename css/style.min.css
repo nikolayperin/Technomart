@@ -260,7 +260,7 @@ a {
   text-decoration: none
 }
 
-.visually-hidden {
+.visually-hidden:not(a),a.visually-hidden:not(:focus):not(:active),input[type=checkbox].visually-hidden,input[type=radio].visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -336,9 +336,9 @@ body {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
 }
 
 .footer-logo,.main-logo {
@@ -365,6 +365,8 @@ body {
 
 .main-logo {
   position: relative;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
   width: 220px;
   height: 42px;
   padding: 9px 0;
@@ -1613,7 +1615,7 @@ body {
   overflow-wrap: break-word
 }
 
-.filter-form .end-price,.filter-form .filters-values,.filter-form .price-range,.filter-form .start-price,.sorting-of-items {
+.filter-form .end-price,.filter-form .filters-values,.filter-form .price-range,.filter-form .start-price,.price-range,.sorting-of-items {
   background-color: #f7f3ec;
   border-radius: 3px
 }
@@ -1640,24 +1642,35 @@ body {
   align-items: center
 }
 
-.filter-form .price-range {
+.price-range {
+  display: block;
   width: 100%;
   height: 80px;
   margin-bottom: 10px;
-  padding: 39px 20px 0;
+  padding: 0 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0
 }
 
-.price-range .scale {
-  position: relative;
-  width: 180px;
-  height: 2px;
-  background-color: #d7dcde
+.irs .irs-from,.irs .irs-max,.irs .irs-min,.irs .irs-single,.irs .irs-to {
+  display: none
 }
 
-.price-range .toggle {
-  position: absolute;
+.irs .irs-line {
+  top: 39px;
+  height: 2px;
+  background-color: #d7dcde;
+  border-radius: 0
+}
+
+.irs .irs-bar {
+  top: 39px;
+  height: 2px;
+  background-color: #00ca74
+}
+
+.irs .irs-handle {
+  top: 30px;
   width: 20px;
   height: 20px;
   background-color: #ababab;
@@ -1668,20 +1681,8 @@ body {
   cursor: pointer
 }
 
-.price-range .toggle-min {
-  top: -9px;
-  left: -8px
-}
-
-.price-range .toggle-max {
-  top: -9px;
-  right: 25px
-}
-
-.price-range .bar {
-  width: 80%;
-  height: 100%;
-  background-color: #00ca74
+.irs .irs-handle>i:first-child {
+  display: none
 }
 
 .price-filter-fieldset .end-price,.price-filter-fieldset .start-price {
@@ -1697,7 +1698,8 @@ body {
   padding: 0;
   list-style: none;
   font-size: 15px;
-  line-height: 25px
+  line-height: 25px;
+  position: relative
 }
 
 .filter-form .manufacturers-list li:not(:last-child),.filter-form .power-supply-list li:not(:last-child) {
@@ -2025,10 +2027,7 @@ body {
 }
 
 .footer-bottom .developed-by a:focus,.footer-bottom .developed-by a:hover,.footer-bottom .feedback-email a:focus,.footer-bottom .feedback-email a:hover,.footer-navigation li a:focus,.footer-navigation li a:hover {
-  -webkit-text-decoration-color: currentColor;
-  text-decoration-color: currentColor;
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline
+  text-decoration: underline
 }
 
 .footer-navigation li a:active {
@@ -2278,7 +2277,6 @@ body {
   top: 50%;
   left: 50%;
   width: 620px;
-  height: 428px;
   margin-top: -214px;
   margin-left: -310px;
   -webkit-box-shadow: 0 20px 40px rgba(0,0,0,.75);
@@ -2382,6 +2380,7 @@ body {
   width: 620px;
   margin-top: -150px;
   margin-left: -310px;
+  padding-top: 70px;
   -webkit-box-shadow: 0 20px 40px rgba(41,52,73,.75);
   box-shadow: 0 20px 40px rgba(41,52,73,.75);
   -webkit-animation: scale .5s;
@@ -2400,12 +2399,10 @@ body {
   background-position: 0 0
 }
 
-.cart-notification-inner-wrapper {
-  padding: 70px 0 70px 180px
-}
-
 .modal-cart-notification h2 {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 70px;
+  padding-left: 180px;
   font-weight: 400;
   font-size: 30px;
   line-height: 30px

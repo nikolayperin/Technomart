@@ -59,9 +59,9 @@ if (document.body.contains(slideBackwardButton)) {
   slideBackwardButton.addEventListener("click", function(evt){
     evt.preventDefault();
     var currentSlide = document.querySelector(".promo-slider-list .slider-item-current");
-    var currentSlideNumber = [...currentSlide.parentNode.children].indexOf(currentSlide);
+    var currentSlideNumber = Array.prototype.slice.call(currentSlide.parentNode.children).indexOf(currentSlide);
     var currentSlideIndicator = document.querySelector(".slide-indicators .slide-indicator-current");
-    var currentSlideIndicatorNumber = [...currentSlideIndicator.parentNode.children].indexOf(currentSlideIndicator);
+    var currentSlideIndicatorNumber = Array.prototype.slice.call(currentSlideIndicator.parentNode.children).indexOf(currentSlideIndicator);
 
     currentSlide.classList.remove("slider-item-current");
     currentSlideIndicator.classList.remove("slide-indicator-current");
@@ -82,9 +82,9 @@ if (document.body.contains(slideForwardButton)) {
   slideForwardButton.addEventListener("click", function(evt){
     evt.preventDefault();
     var currentSlide = document.querySelector(".promo-slider-list .slider-item-current");
-    var currentSlideNumber = [...currentSlide.parentNode.children].indexOf(currentSlide);
+    var currentSlideNumber = Array.prototype.slice.call(currentSlide.parentNode.children).indexOf(currentSlide);
     var currentSlideIndicator = document.querySelector(".slide-indicators .slide-indicator-current");
-    var currentSlideIndicatorNumber = [...currentSlideIndicator.parentNode.children].indexOf(currentSlideIndicator);
+    var currentSlideIndicatorNumber = Array.prototype.slice.call(currentSlideIndicator.parentNode.children).indexOf(currentSlideIndicator);
 
     currentSlide.classList.remove("slider-item-current");
     currentSlideIndicator.classList.remove("slide-indicator-current");
@@ -107,7 +107,7 @@ if (document.body.contains(slideIndicators[0])) {
       evt.preventDefault();
       var currentSlide = document.querySelector(".promo-slider-list .slider-item-current");
       var currentSlideIndicator = document.querySelector(".slide-indicators .slide-indicator-current");
-      var activeSlideIndicatorNumber = [...evt.target.parentNode.children].indexOf(evt.target);
+      var activeSlideIndicatorNumber = Array.prototype.slice.call(evt.target.parentNode.children).indexOf(evt.target);
 
       currentSlide.classList.remove("slider-item-current");
       currentSlideIndicator.classList.remove("slide-indicator-current");
@@ -121,13 +121,76 @@ if (document.body.contains(slideIndicators[0])) {
   }
 }
 
+// range slider
+function updateInputs(data) {
+  from = data.from;
+  to = data.to;
+
+  $inputFrom.prop("value", from);
+  $inputTo.prop("value", to);
+}
+
+if (document.body.contains(document.querySelector(".price-range .js-range-slider"))) {
+  var $range = $(".price-range .js-range-slider"),
+    $inputFrom = $(".price-wrapper .start-price"),
+    $inputTo = $(".price-wrapper .end-price"),
+    instance,
+    min = 0,
+    max = 35000,
+    from = 0,
+    to = 0;
+
+  $range.ionRangeSlider({
+    skin: "flat",
+    type: "double",
+    min: min,
+    max: max,
+    from: 0,
+    to: 30000,
+    onStart: updateInputs,
+    onChange: updateInputs
+  });
+  instance = $range.data("ionRangeSlider");
+
+
+  $inputFrom.on("input", function() {
+    var val = $(this).prop("value");
+
+    // validate
+    if (val < min) {
+      val = min;
+    } else if (val > to) {
+      val = to;
+    }
+
+    instance.update({
+      from: val
+    });
+  });
+
+  $inputTo.on("input", function() {
+    var val = $(this).prop("value");
+
+    // validate
+    if (val < from) {
+      val = from;
+    } else if (val > max) {
+      val = max;
+    }
+
+    instance.update({
+      to: val
+    });
+  });
+}
+
 // buy and add to bookmarks buttons
 var buyButtons = document.querySelectorAll(".manage-item-popup-menu .buy-button");
 var addToBookmarksButtons = document.querySelectorAll(".manage-item-popup-menu .add-to-bookmarks-button");
 var cartButton = document.querySelector(".main-header .cart-button");
 var bookmarksButton = document.querySelector(".main-header .bookmarks-button");
-var cartAmount = document.querySelector('.main-header output[name="cart-amount"]');
-var bookmarksAmount = document.querySelector('.main-header output[name="bookmarks-amount"]');
+var cartAmount = document.querySelector('.main-header [name="cart-amount"]');
+var bookmarksAmount = document.querySelector('.main-header [name="bookmarks-amount"]');
 var modalCartNotification = document.querySelector(".modal-cart-notification");
 var continueButton = document.querySelector(".modal-cart-notification .continue-button");
 
@@ -138,7 +201,7 @@ if (document.body.contains(buyButtons[0])) {
       if (!cartButton.classList.contains("not-empty")) {
         cartButton.classList.add("not-empty");
       }
-      cartAmount.value++;
+      cartAmount.innerHTML++;
       modalCartNotification.classList.add("modal-show");
       modalOverlay.style.display = "block";
     });
@@ -152,7 +215,7 @@ if (document.body.contains(addToBookmarksButtons[0])) {
       if (!bookmarksButton.classList.contains("not-empty")) {
         bookmarksButton.classList.add("not-empty");
       }
-      bookmarksAmount.value++;
+      bookmarksAmount.innerHTML++;
     });
   }
 }

@@ -4,8 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>«Техномарт» - Перфораторы</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
 </head>
 
 <body>
@@ -89,11 +92,7 @@
               <legend class="price-filter-legend">Цена:</legend>
               <div class="price-wrapper">
                 <div class="price-range">
-                  <div class="scale">
-                    <div class="toggle toggle-min"></div>
-                    <div class="bar"></div>
-                    <div class="toggle toggle-max"></div>
-                  </div>
+                  <input type="text" class="js-range-slider visually-hidden" value="">
                 </div>
                 <label class="visually-hidden" for="start-price">Начальная цена</label>
                 <input class="start-price" type="text" id="start-price" size="8" name="start-price" value="">
@@ -365,6 +364,6 @@
 
   <div class="modal-overlay"></div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 </body>
 </html>
