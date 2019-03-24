@@ -13,7 +13,7 @@ ghPages = require('gulp-gh-pages');
 const dirs = {
   src: 'source',
   dest: 'build'
-}
+};
 
 const paths = {
   html: {
@@ -92,6 +92,7 @@ const build = gulp.series(
 function serve(done) {
   server.init({
     watch: true,
+    notify: false,
     server: dirs.dest
   });
   done();
@@ -102,7 +103,7 @@ function watch() {
   gulp.watch(paths.css.src, css);
   gulp.watch(paths.js.src, js);
   gulp.watch(paths.img.src, img);
-};
+}
 
 const dev = gulp.series(build, serve, watch);
 
