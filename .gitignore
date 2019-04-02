@@ -4,7 +4,6 @@ todo*
 *.log
 *.pdf
 *.psd
-*.bak
 node_modules/
 npm-debug.*
 Thumbs.db
