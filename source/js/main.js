@@ -283,7 +283,6 @@ if (document.body.contains(openMapLink)) {
 var modalWindows = document.querySelectorAll(".modal");
 var modalCloseBtns = document.querySelectorAll(".modal .modal-close");
 
-
 if (document.body.contains(modalCloseBtns[0])) {
   for (var i = 0; i < modalCloseBtns.length; i++)
   modalCloseBtns[i].addEventListener("click", function(evt){
